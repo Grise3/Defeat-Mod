@@ -35,6 +35,7 @@
 	misc
 	{
 		// ######## Custom section.  Add and remove freely ########
+		ui/rules-about.rml
 		ui/options_democracy.rml
 		ui/options_bots.rml
 		ui/options_movements_cosmetic.rml

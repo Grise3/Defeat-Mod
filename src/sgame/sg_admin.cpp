@@ -363,6 +363,12 @@ static const g_admin_cmd_t     g_admin_cmds[] =
 	},
 
 	{
+		"overlay",         G_admin_overlay,        false, "overlay",
+		N_("Send an admin message to a player"),
+		N_("[^3name|slot#^7] [^3message^7]")
+	},
+
+	{
 		"passvote",     G_admin_endvote,     false, "passvote",
 		N_("pass a vote currently taking place"),
 		"(^5a|h^7)"
@@ -490,12 +496,6 @@ static const g_admin_cmd_t     g_admin_cmds[] =
 		N_("warn a player about his behaviour"),
 		N_("[^3name|slot#^7] [^3reason^7]")
 	},
-
-	{
-		"overlay",         G_admin_overlay,        false, "overlay",
-		N_("warn a player about his behaviour"),
-		N_("[^3name|slot#^7] [^3message^7]")
-	}
 };
 #define adminNumCmds ARRAY_LEN( g_admin_cmds )
 
@@ -3823,14 +3823,14 @@ bool G_admin_warn( gentity_t *ent )
 
 bool G_admin_overlay( gentity_t *ent )
 {
-	char      reason[ 64 ];
+	char      message[ 64 ];
 	int       pids[ MAX_CLIENTS ], found, count;
 	char      name[ MAX_NAME_LENGTH ], err[ MAX_STRING_CHARS ];
 	gentity_t *vic;
 
 	if( trap_Argc() < 3 )
 	{
-		 ADMP( QQ( N_("^overlay:^* usage: overlay [name|slot#] [message]") ) );
+		 ADMP( QQ( N_("^3overlay:^* usage: overlay [name|slot#] [message]") ) );
 		return false;
 	}
 
@@ -3848,19 +3848,19 @@ bool G_admin_overlay( gentity_t *ent )
 
 	if( !admin_higher( ent, &g_entities[ pids[ 0 ] ] ) )
 	{
-		ADMP( va( "%s %s", QQ( N_("^3$1$:^* sorry, but your intended victim has a higher admin"
+		ADMP( va( "%s %s", QQ( N_("^3$1$:^* sorry, but your intended target has a higher admin"
 		          " level than you") ), "overlay" ) );
 		return false;
 	}
 
 	vic = &g_entities[ pids[ 0 ] ];
 
-	Color::StripColors( ConcatArgs( 2 ), reason, sizeof( reason ) );
+	Color::StripColors( ConcatArgs( 2 ), message, sizeof( message ) );
 
 	 CPx( pids[ 0 ], va( "cp_tr " QQ(N_("^1You have received a message from an administrator:\n^3$1$")) " %s",
                         Quote( message ) ) );
 
-	G_admin_action( QQ( N_("^3overlay:^* $1$ Send an admin message to $2$^*") ),
+	G_admin_action( QQ( N_("^3overlay:^* $1$ sent an admin message to $2$^*") ),
 	                "%s %s %s", ent, Quote( vic->client->pers.netname ) );
 
 	return true;

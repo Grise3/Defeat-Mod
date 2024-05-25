@@ -1,0 +1,80 @@
+﻿<rml>
+	<head>
+		<link type="text/template" href="/ui/shared/window.rml" />
+		<style>
+			panel {
+				width: 65%;
+				padding: 0.5em;
+			}
+		</style>
+	</head>
+	<body template="window" id="rules-about" style="width:60em; height:45em;">
+		<h1><translate quake emoticons>Welcome to ^3Ctrl ^7+ ^8Alt ^7+ ^1Defeat^* server!</translate></h1>
+		<tabset>
+			<tab>
+				<img class="emoticon" style="margin-right:0.2em;" src="/emoticons/official" />
+				<translate>Welcome</translate>
+			</tab>
+			<panel>
+				<window id="innersidebar" style="height:50%">
+					<translate quake emoticons>Welcome to ^3Ctrl ^7+ ^8Alt ^7+ ^1Defeat^* server!</translate>
+					<br/>
+					<p>About</p>
+					<p><translate quake emoticons> the ^6DEMIGOD ^* command have been made by </translate> <i>Sweet</i></p>
+					<p><translate quake emoticons> the ^6CHEATS ^* command have been made by </translate> <i>Sweet</i></p>
+					<p><translate quake emoticons> the ^6FORCEBALANCE ^* command have been made by </translate> <i>Sweet</i></p>
+					<p><translate quake emoticons> the ^5biokit ^* have been made by </translate> <i>Kai</i></p>
+					<p><translate quake emoticons> thanks to </translate> <i>freem</i> <translate> for the hosting</translate></p>
+					<div>
+						<p>this mod is based on the  <ilink-options onclick='Events.pushevent("show info-are-you-sure-change-server", event)'>Map&Bot Testing EU mod</ilink-options>, by <i>Sweet</i> </p>
+					</div>
+				</window>
+			</panel>
+			<tab>
+				<img class="emoticon" style="margin-right:0.2em;" src="/emoticons/featured" />
+				<translate>Rules</translate>
+			</tab>
+			<panel>
+				<window id="innersidebar" style="height:50%">
+					<h2>Rules</h2>
+						<h3>1. Respect for other players:</h3>
+						<p>No abusive language or abusive behavior is allowed.</p>
+						<p>Respect other people's cultural differences and opinions.</p>
+
+						<h3>2. harassment:</h3>
+						<p>Harassment is not tolerated.</p>
+
+						<h3>3. No cheat:</h3>
+						<p>The use of third-party software to gain an unfair advantage is strictly prohibited.</p>
+						<p>The connection of two clients for the purpose of spying on the enemi camp is forbidden</p>
+
+						<h3>4. Ads and Spam:</h3>
+						<p>No unauthorized ads.</p>
+						<p>Please avoid spam in the chat.</p>
+
+						<h3>5. Moderation and sanctions:</h3>
+						<p>Please respect the decisions of moderators and administrators.</p>
+						<p>Penalties can include warnings, temporary bans, permanent bans, or mute for non-compliance with the rules.</p>
+
+						<h3>6. Appropriate Language:</h3>
+						<p>No vulgar or obscene language.</p>
+
+						<h3>For complaints, reports, contact an administrator with the admin channel</h3>
+				</window>
+			</panel>
+			<tab>
+				<img class="emoticon" style="margin-right:0.2em;" src="/emoticons/dev" />
+				<translate>Use the mod</translate>
+			</tab>
+			<panel>
+				<window id="innersidebar" style="height:50%">
+					<h2>Use the mod in local</h2>
+						<p> If you want, you can use this mod in local game.</p>
+						<button-menu style="width:100%" onclick='Events.pushevent("show info-are-you-sure-setLmod", event)'><translate>use this mod in local</translate></button-menu>
+						<p> For stop to use the mod, you can do : /fs_extrapaks "" </p>
+
+				</window>
+			</panel>
+		</tabset>
+	</body>
+</rml>
